@@ -6,12 +6,13 @@ const aspectH = 3;
 const container = document.body.querySelector('.container-canvas');
 
 // 필요에 따라 이하에 변수 생성.
-let capture; // 웹캠 입력 캡처
-let gridSize = 20; // 픽셀 크기
-let pixels = []; // 픽셀 정보를 저장할 배열
-let mic; // 마이크 입력
-const clapThreshold = 0.1; // 소리 감지 임계값
-let explode = false; // 픽셀 폭발 여부
+
+let capture;
+let gridSize = 20;
+let pixels = [];
+let mic;
+const clapThreshold = 0.1;
+let explode = false;
 
 function setup() {
   // 컨테이너의 현재 위치, 크기 등의 정보 가져와서 객체구조분해할당을 통해 너비, 높이 정보를 변수로 추출.
@@ -73,8 +74,8 @@ function draw() {
   // 소리 감지
   const volume = mic.getLevel();
   if (volume > clapThreshold) {
-    explode = true; // 폭발 시작
-    setTimeout(() => (explode = false), 1000); // 1초 후 폭발 종료
+    explode = true;
+    setTimeout(() => (explode = false), 1000); // 1초 후 원위치
   }
 
   // 픽셀 렌더
